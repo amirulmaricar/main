@@ -52,7 +52,7 @@ public class XmlProductDatabaseStorage implements ProductDatabaseStorage {
         requireNonNull(filePath);
 
         if (!Files.exists(filePath)) {
-            logger.info("AddressBook file " + filePath + " not found");
+            logger.info("Productbook file " + filePath + " not found");
             return Optional.empty();
         }
 
