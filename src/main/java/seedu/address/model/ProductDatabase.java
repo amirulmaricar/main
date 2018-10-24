@@ -30,7 +30,7 @@ import seedu.address.model.timeidentifiedclass.transaction.Transaction;
  * Wraps all data at the address-book level
  * Duplicates are not allowed (by .isSamePerson comparison)
  */
-public class AddressBook implements ReadOnlyAddressBook {
+public class ProductDatabase implements ReadOnlyProductDatabase {
 
     private final UniquePersonList persons;
     private final SalesHistory salesHistory;
@@ -62,12 +62,12 @@ public class AddressBook implements ReadOnlyAddressBook {
         distributors = new UniqueDistributorList();
     }
 
-    public AddressBook() {}
+    public ProductDatabase() {}
 
     /**
-     * Creates an AddressBook using the Persons in the {@code toBeCopied}
+     * Creates an ProductDatabase using the Persons in the {@code toBeCopied}
      */
-    public AddressBook(ReadOnlyAddressBook toBeCopied) {
+    public ProductDatabase(ReadOnlyProductDatabase toBeCopied) {
         this();
         resetData(toBeCopied);
     }
@@ -94,9 +94,9 @@ public class AddressBook implements ReadOnlyAddressBook {
 
 
     /**
-     * Resets the existing data of this {@code AddressBook} with {@code newData}.
+     * Resets the existing data of this {@code ProductDatabase} with {@code newData}.
     */
-    public void resetData(ReadOnlyAddressBook newData) {
+    public void resetData(ReadOnlyProductDatabase newData) {
         requireNonNull(newData);
 
         setPersons(newData.getPersonList());
@@ -258,7 +258,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
-     * Removes {@code key} from this {@code AddressBook}.
+     * Removes {@code key} from this {@code ProductDatabase}.
      * {@code key} must exist in the address book.
      */
     public void removePerson(Product key) {
@@ -267,7 +267,7 @@ public class AddressBook implements ReadOnlyAddressBook {
 
 
     /**
-     * Removes {@code key} from this {@code AddressBook}.
+     * Removes {@code key} from this {@code ProductDatabase}.
      * {@code key} must exist in the address book.
      */
     public void removeDistributor(Distributor key) {
@@ -295,8 +295,8 @@ public class AddressBook implements ReadOnlyAddressBook {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof AddressBook // instanceof handles nulls
-                && distributors.equals(((AddressBook) other).distributors));
+                || (other instanceof ProductDatabase // instanceof handles nulls
+                && distributors.equals(((ProductDatabase) other).distributors));
     }
 
     @Override

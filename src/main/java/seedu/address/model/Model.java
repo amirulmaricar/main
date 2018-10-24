@@ -31,13 +31,13 @@ public interface Model {
     Predicate<Product> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
 
     /** Clears existing backing model and replaces with the provided new data. */
-    void resetData(ReadOnlyAddressBook newData);
+    void resetData(ReadOnlyProductDatabase newData);
 
-    /** Returns the AddressBook */
-    ReadOnlyAddressBook getProductInfoBook();
+    /** Returns the ProductDatabase */
+    ReadOnlyProductDatabase getProductInfoBook();
 
-    /** Returns the AddressBook */
-    ReadOnlyAddressBook getDistributorInfoBook();
+    /** Returns the ProductDatabase */
+    ReadOnlyProductDatabase getDistributorInfoBook();
 
     /**
      * Returns true if a distributor with the same identity as {@code distributor} exists in the Inventarie.
@@ -178,7 +178,7 @@ public interface Model {
     void setUsersList(UniqueUsersList uniqueUserList);
 
     /** Returns the UserDatabase */
-    ReadOnlyAddressBook getUserDatabase();
+    ReadOnlyProductDatabase getUserDatabase();
 
     /**
      * Deletes the given user.
@@ -204,7 +204,7 @@ public interface Model {
 
     void updateUserPassword(User target, User userWithNewPassword) throws UserNotFoundException;
 
-    /** Returns the AddressBook */
-    ReadOnlyAddressBook getAddressBook();
+    /** Returns the ProductDatabase */
+    ReadOnlyProductDatabase getAddressBook();
 
 }

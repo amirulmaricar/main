@@ -12,7 +12,7 @@ import seedu.address.commons.core.GuiSettings;
 public class UserPrefs {
 
     private GuiSettings guiSettings;
-    private Path addressBookFilePath = Paths.get("data" , "addressbook.xml");
+    private Path productDatabaseFilePath = Paths.get("data" , "products.xml");
     private Path usersFilePath = Paths.get("data", "users.xml");
 
     public UserPrefs() {
@@ -31,12 +31,12 @@ public class UserPrefs {
         guiSettings = new GuiSettings(width, height, x, y);
     }
 
-    public Path getAddressBookFilePath() {
-        return addressBookFilePath;
+    public Path getProductDatabaseFilePath() {
+        return productDatabaseFilePath;
     }
 
-    public void setAddressBookFilePath(Path addressBookFilePath) {
-        this.addressBookFilePath = addressBookFilePath;
+    public void setProductDatabaseFilePath(Path productDatabaseFilePath) {
+        this.productDatabaseFilePath = productDatabaseFilePath;
     }
 
     public Path getUsersFilePath() {
@@ -59,19 +59,19 @@ public class UserPrefs {
         UserPrefs o = (UserPrefs) other;
 
         return Objects.equals(guiSettings, o.guiSettings)
-                && Objects.equals(addressBookFilePath, o.addressBookFilePath);
+                && Objects.equals(productDatabaseFilePath, o.productDatabaseFilePath);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(guiSettings, addressBookFilePath);
+        return Objects.hash(guiSettings, productDatabaseFilePath);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Gui Settings : " + guiSettings.toString());
-        sb.append("\nLocal data file location : " + addressBookFilePath);
+        sb.append("\nLocal data file location : " + productDatabaseFilePath);
         return sb.toString();
     }
 

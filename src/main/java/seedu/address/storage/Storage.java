@@ -9,7 +9,7 @@ import seedu.address.commons.events.model.UserDatabaseChangedEvent;
 import seedu.address.commons.events.model.UserDeletedEvent;
 import seedu.address.commons.events.storage.DataSavingExceptionEvent;
 import seedu.address.commons.exceptions.DataConversionException;
-import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlyProductDatabase;
 import seedu.address.model.ReadOnlyUserDatabase;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.login.User;
@@ -29,10 +29,10 @@ public interface Storage extends ProductDatabaseStorage, UserPrefsStorage, UserD
     Path getProductInfoBookFilePath();
 
     @Override
-    Optional<ReadOnlyAddressBook> readAddressBook() throws DataConversionException, IOException;
+    Optional<ReadOnlyProductDatabase> readAddressBook() throws DataConversionException, IOException;
 
     @Override
-    void saveAddressBook(ReadOnlyAddressBook addressBook) throws IOException;
+    void saveAddressBook(ReadOnlyProductDatabase addressBook) throws IOException;
 
     /**
      * Saves the current version of the Address Book to the hard disk.
@@ -65,7 +65,7 @@ public interface Storage extends ProductDatabaseStorage, UserPrefsStorage, UserD
     void saveUserDatabase(ReadOnlyUserDatabase userDatabase) throws IOException;
 
     @Override
-    void deleteAddressBook(User user) throws IOException;
+    void deleteProductDatabase(User user) throws IOException;
 
     void update(User user);
 }

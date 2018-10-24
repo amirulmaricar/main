@@ -51,21 +51,21 @@ public class TestStorage extends ComponentManager implements Storage {
     }
 
     @Override
-    public Optional<ReadOnlyAddressBook> readAddressBook() throws DataConversionException, IOException {
+    public Optional<ReadOnlyProductDatabase> readAddressBook() throws DataConversionException, IOException {
         return null;
     }
 
     @Override
-    public Optional<ReadOnlyAddressBook> readAddressBook(Path filePath) {
+    public Optional<ReadOnlyProductDatabase> readAddressBook(Path filePath) {
         return null;
     }
 
     @Override
-    public void saveAddressBook(ReadOnlyAddressBook addressBook) throws IOException {
+    public void saveAddressBook(ReadOnlyProductDatabase addressBook) throws IOException {
     }
 
     @Override
-    public void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath) throws IOException {
+    public void saveAddressBook(ReadOnlyProductDatabase addressBook, Path filePath) throws IOException {
     }
 
     /**
@@ -106,7 +106,7 @@ public class TestStorage extends ComponentManager implements Storage {
     }
 
     @Override
-    public void deleteAddressBook(User user) {
+    public void deleteProductDatabase(User user) {
     }
 
 

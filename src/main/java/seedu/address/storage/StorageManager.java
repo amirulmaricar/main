@@ -14,13 +14,13 @@ import seedu.address.commons.events.model.UserDatabaseChangedEvent;
 import seedu.address.commons.events.model.UserDeletedEvent;
 import seedu.address.commons.events.storage.DataSavingExceptionEvent;
 import seedu.address.commons.exceptions.DataConversionException;
-import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlyProductDatabase;
 import seedu.address.model.ReadOnlyUserDatabase;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.login.User;
 
 /**
- * Manages storage of AddressBook data in local storage.
+ * Manages storage of ProductDatabase data in local storage.
  */
 public class StorageManager extends ComponentManager implements Storage {
 
@@ -56,7 +56,7 @@ public class StorageManager extends ComponentManager implements Storage {
     }
 
 
-    // ================ AddressBook methods ==============================
+    // ================ ProductDatabase methods ==============================
 
     @Override
     public Path getProductInfoBookFilePath() {
@@ -64,28 +64,23 @@ public class StorageManager extends ComponentManager implements Storage {
     }
 
     @Override
-    public Path getDistributorInfoFilePath() {
-        return productDatabaseStorage.getDistributorInfoFilePath();
-    }
-
-    @Override
-    public Optional<ReadOnlyAddressBook> readAddressBook() throws DataConversionException, IOException {
+    public Optional<ReadOnlyProductDatabase> readAddressBook() throws DataConversionException, IOException {
         return readAddressBook(productDatabaseStorage.getProductInfoBookFilePath());
     }
 
     @Override
-    public Optional<ReadOnlyAddressBook> readAddressBook(Path filePath) throws DataConversionException, IOException {
+    public Optional<ReadOnlyProductDatabase> readAddressBook(Path filePath) throws DataConversionException, IOException {
         logger.fine("Attempting to read data from file: " + filePath);
         return productDatabaseStorage.readAddressBook(filePath);
     }
 
     @Override
-    public void saveAddressBook(ReadOnlyAddressBook addressBook) throws IOException {
+    public void saveAddressBook(ReadOnlyProductDatabase addressBook) throws IOException {
         saveAddressBook(addressBook, productDatabaseStorage.getProductInfoBookFilePath());
     }
 
     @Override
-    public void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath) throws IOException {
+    public void saveAddressBook(ReadOnlyProductDatabase addressBook, Path filePath) throws IOException {
         logger.fine("Attempting to write to data file: " + filePath);
         productDatabaseStorage.saveAddressBook(addressBook, filePath);
     }
@@ -132,9 +127,9 @@ public class StorageManager extends ComponentManager implements Storage {
     }
 
     @Override
-    public void deleteAddressBook(User user) throws IOException {
+    public void deleteProductDatabase(User user) throws IOException {
         logger.fine("Attempting to delete to data file: " + user.getAddressBookFilePath());
-        productDatabaseStorage.deleteAddressBook(user);
+        productDatabaseStorage.deleteProductDatabase(user);
     }
 
     @Override
@@ -152,7 +147,7 @@ public class StorageManager extends ComponentManager implements Storage {
     @Subscribe
     public void handleUserDeletedEvent(UserDeletedEvent event) throws IOException {
         logger.info(LogsCenter.getEventHandlingLogMessage(event, "User has been deleted, deleting files"));
-        deleteAddressBook(event.data);
+        deleteProductDatabase(event.data);
     }
 
     // ============== Storage updater =====================
