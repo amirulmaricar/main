@@ -62,7 +62,7 @@ public class XmlAdaptedDistributor {
                     DistributorName.class.getSimpleName()));
         }
         if (!DistributorName.isValidName(name)) {
-            throw new IllegalValueException(DistributorName.MESSAGE_NAME_CONSTRAINTS);
+            throw new IllegalValueException(DistributorName.MESSAGE_DIST_NAME_CONSTRAINTS);
         }
         final DistributorName modelName = new DistributorName(name);
 

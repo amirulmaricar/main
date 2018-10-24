@@ -102,7 +102,7 @@ public class XmlAdaptedProduct {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName()));
         }
         if (!DistributorName.isValidName(distname)) {
-            throw new IllegalValueException(DistributorName.MESSAGE_NAME_CONSTRAINTS);
+            throw new IllegalValueException(DistributorName.MESSAGE_DIST_NAME_CONSTRAINTS);
         }
         final DistributorName modelDistName = new DistributorName(distname);
 

@@ -82,7 +82,7 @@ public class ParserUtil {
         requireNonNull(name);
         String trimmedName = name.trim();
         if (!DistributorName.isValidName(trimmedName)) {
-            throw new ParseException(DistributorName.MESSAGE_NAME_CONSTRAINTS);
+            throw new ParseException(DistributorName.MESSAGE_DIST_NAME_CONSTRAINTS);
         }
         return new DistributorName(trimmedName);
     }

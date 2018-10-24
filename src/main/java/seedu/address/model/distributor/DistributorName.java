@@ -9,7 +9,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class DistributorName {
 
-    public static final String MESSAGE_NAME_CONSTRAINTS =
+    public static final String MESSAGE_DIST_NAME_CONSTRAINTS =
             "Distributor names should only contain alphanumeric characters and spaces, and it should not be blank";
 
     /*
@@ -27,7 +27,7 @@ public class DistributorName {
      */
     public DistributorName(String distname) {
         requireNonNull(distname);
-        checkArgument(isValidName(distname), MESSAGE_NAME_CONSTRAINTS);
+        checkArgument(isValidName(distname), MESSAGE_DIST_NAME_CONSTRAINTS);
         fullDistName = distname;
     }
 

@@ -4,14 +4,14 @@
     <products>
         <name>Alice Pauline</name>
         <serialNumber>94351253</serialNumber>
-        <email>alice@example.com</email>
+        <email>aliceexamplecom</email>
         <address>123, Jurong West Ave 6, #08-111</address>
         <tagged>friends</tagged>
     </products>
     <products>
         <name>Benson Meier</name>
         <serialNumber>98765432</serialNumber>
-        <email>johnd@example.com</email>
+        <email>johndexamplecom</email>
         <address>311, Clementi Ave 2, #02-25</address>
         <tagged>owesMoney</tagged>
         <tagged>friends</tagged>
@@ -19,32 +19,32 @@
     <products>
         <name>Carl Kurz</name>
         <serialNumber>95352563</serialNumber>
-        <email>heinz@example.com</email>
+        <email>heinzexamplecom</email>
         <address>wall street</address>
     </products>
     <products>
         <name>Daniel Meier</name>
         <serialNumber>87652533</serialNumber>
-        <email>cornelia@example.com</email>
+        <email>corneliaexamplecom</email>
         <address>10th street</address>
         <tagged>friends</tagged>
     </products>
     <products>
         <name>Elle Meyer</name>
         <serialNumber>9482224</serialNumber>
-        <email>werner@example.com</email>
+        <email>wernerexamplecom</email>
         <address>michegan ave</address>
     </products>
     <products>
         <name>Fiona Kunz</name>
         <serialNumber>9482427</serialNumber>
-        <email>lydia@example.com</email>
+        <email>lydiaexamplecom</email>
         <address>little tokyo</address>
     </products>
     <products>
         <name>George Best</name>
         <serialNumber>9482442</serialNumber>
-        <email>anna@example.com</email>
+        <email>annaexamplecom</email>
         <address>4th street</address>
     </products>
 </addressbook>
