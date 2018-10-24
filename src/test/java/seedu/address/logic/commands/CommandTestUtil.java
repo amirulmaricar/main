@@ -19,9 +19,17 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+<<<<<<< HEAD
+<<<<<<< HEAD
+import seedu.address.model.person.NameContainsKeywordsPredicate;
+import seedu.address.model.person.Product;
+=======
+=======
 import seedu.address.model.ProductDatabase;
+>>>>>>> upstream/master
 import seedu.address.model.product.NameContainsKeywordsPredicate;
 import seedu.address.model.product.Product;
+>>>>>>> upstream/master
 import seedu.address.testutil.EditDistributorDescriptorBuilder;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 

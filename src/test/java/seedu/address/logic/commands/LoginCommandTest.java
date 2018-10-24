@@ -1,5 +1,11 @@
 package seedu.address.logic.commands;
 
+<<<<<<< HEAD
+/**
+ * Created by Amirul Maricar on 08/10/2018
+ */
+public class LoginCommandTest {
+=======
 import static java.util.Objects.requireNonNull;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -335,4 +341,5 @@ public class LoginCommandTest {
             return username;
         }
     }
+>>>>>>> upstream/master
 }

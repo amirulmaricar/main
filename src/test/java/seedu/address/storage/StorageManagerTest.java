@@ -3,6 +3,10 @@ package seedu.address.storage;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+<<<<<<< HEAD
+import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+=======
+>>>>>>> upstream/master
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -32,10 +36,17 @@ public class StorageManagerTest {
 
     @Before
     public void setUp() {
+<<<<<<< HEAD
+        XmlAddressBookStorage addressBookStorage = new XmlAddressBookStorage(getTempFilePath("ab"));
+        JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(getTempFilePath("prefs"));
+        UserDatabaseStorage usersStorage = new XmlUserDatabaseStorage(getTempFilePath("ud"));
+        storageManager = new StorageManager(addressBookStorage, userPrefsStorage, usersStorage);
+=======
         XmlProductDatabaseStorage addressBookStorage = new XmlProductDatabaseStorage(getTempFilePath("ab"));
         JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(getTempFilePath("prefs"));
         XmlUserDatabaseStorage userStorage = new XmlUserDatabaseStorage(getTempFilePath("ub"));
         storageManager = new StorageManager(addressBookStorage, userPrefsStorage, userStorage);
+>>>>>>> upstream/master
     }
 
     private Path getTempFilePath(String fileName) {
@@ -57,6 +68,33 @@ public class StorageManagerTest {
         assertEquals(original, retrieved);
     }
 
+<<<<<<< HEAD
+    @Test
+    public void addressBookReadSave() throws Exception {
+        /*
+         * Note: This is an integration test that verifies the StorageManager is properly wired to the
+         * {@link XmlAddressBookStorage} class.
+         * More extensive testing of UserPref saving/reading is done in {@link XmlAddressBookStorageTest} class.
+         */
+        AddressBook original = getTypicalAddressBook();
+        storageManager.saveAddressBook(original);
+        ReadOnlyAddressBook retrieved = storageManager.readAddressBook().get();
+        assertEquals(original, new AddressBook(retrieved));
+    }
+
+    @Test
+    public void getProductInfoBookFilePath() {
+        assertNotNull(storageManager.getProductInfoBookFilePath());
+    }
+
+    @Test
+    public void handleAddressBookChangedEvent_exceptionThrown_eventRaised() {
+        // Create a StorageManager while injecting a stub that  throws an exception when the save method is called
+        Storage storage = new StorageManager(new XmlAddressBookStorageExceptionThrowingStub(Paths.get("dummy")),
+                                             new JsonUserPrefsStorage(Paths.get("dummy")),
+                                                     new XmlUserDatabaseStorageExceptionThrowingStub(
+             Paths.get("dummy")));
+=======
     //@Test
     //public void addressBookReadSave() throws Exception {
     //    /*
@@ -80,7 +118,12 @@ public class StorageManagerTest {
         Storage storage = new StorageManager(new XmlProductDatabaseStorageExceptionThrowingStub(Paths.get("dummy")),
                 new JsonUserPrefsStorage(Paths.get("dummy")),
                 new XmlUserDatabaseStorageExceptionThrowingStub(Paths.get("dummy")));
+<<<<<<< HEAD
+>>>>>>> upstream/master
+        storage.handleAddressBookChangedEvent(new AddressBookChangedEvent(new AddressBook()));
+=======
         storage.handleAddressBookChangedEvent(new AddressBookChangedEvent(new ProductDatabase()));
+>>>>>>> upstream/master
         assertTrue(eventsCollectorRule.eventsCollector.getMostRecent() instanceof DataSavingExceptionEvent);
     }
 
@@ -88,9 +131,15 @@ public class StorageManagerTest {
     /**
      * A Stub class to throw an exception when the save method is called
      */
+<<<<<<< HEAD
+    class XmlAddressBookStorageExceptionThrowingStub extends XmlAddressBookStorage {
+
+        public XmlAddressBookStorageExceptionThrowingStub(Path filePath) {
+=======
     class XmlProductDatabaseStorageExceptionThrowingStub extends XmlProductDatabaseStorage {
 
         public XmlProductDatabaseStorageExceptionThrowingStub(Path filePath) {
+>>>>>>> upstream/master
             super(filePath);
         }
 
@@ -100,9 +149,12 @@ public class StorageManagerTest {
         }
     }
 
+<<<<<<< HEAD
+=======
     /**
      * A Stub class to throw an exception when the save method is called
      */
+>>>>>>> upstream/master
     class XmlUserDatabaseStorageExceptionThrowingStub extends XmlUserDatabaseStorage {
 
         public XmlUserDatabaseStorageExceptionThrowingStub(Path filePath) {
@@ -114,4 +166,9 @@ public class StorageManagerTest {
             throw new IOException("dummy exception");
         }
     }
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> upstream/master
 }

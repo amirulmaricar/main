@@ -70,20 +70,17 @@ public class XmlUtilTest {
         XmlUtil.getDataFromFile(EMPTY_FILE, ProductDatabase.class);
     }
 
-    /**
     @Test
     public void getDataFromFile_validFile_validResult() throws Exception {
         ProductDatabase dataFromFile =
     XmlUtil.getDataFromFile(VALID_FILE, XmlSerializableProductDatabase.class).toModelType();
         assertEquals(9, dataFromFile.getPersonList().size());
     }
-     */
 
-    /*
     @Test
     public void xmlAdaptedPersonFromFile_fileWithMissingPersonField_validResult() throws Exception {
         XmlAdaptedProduct actualPerson = XmlUtil.getDataFromFile(
-                MISSING_PERSON_FIELD_FILE, XmlAdaptedProductWithRootElement.class);
+                MISSING_PERSON_FIELD_FILE, XmlAdaptedPersonWithRootElement.class);
         XmlAdaptedProduct expectedPerson = new XmlAdaptedProduct(
                 null, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS);
         assertEquals(expectedPerson, actualPerson);
@@ -92,7 +89,7 @@ public class XmlUtilTest {
     @Test
     public void xmlAdaptedPersonFromFile_fileWithInvalidPersonField_validResult() throws Exception {
         XmlAdaptedProduct actualPerson = XmlUtil.getDataFromFile(
-                INVALID_PERSON_FIELD_FILE, XmlAdaptedProductWithRootElement.class);
+                INVALID_PERSON_FIELD_FILE, XmlAdaptedPersonWithRootElement.class);
         XmlAdaptedProduct expectedPerson = new XmlAdaptedProduct(
                 VALID_NAME, INVALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS);
         assertEquals(expectedPerson, actualPerson);
@@ -101,11 +98,11 @@ public class XmlUtilTest {
     @Test
     public void xmlAdaptedPersonFromFile_fileWithValidPerson_validResult() throws Exception {
         XmlAdaptedProduct actualPerson = XmlUtil.getDataFromFile(
-                VALID_PERSON_FILE, XmlAdaptedProductWithRootElement.class);
+                VALID_PERSON_FILE, XmlAdaptedPersonWithRootElement.class);
         XmlAdaptedProduct expectedPerson = new XmlAdaptedProduct(
                 VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS);
         assertEquals(expectedPerson, actualPerson);
-    }*/
+    }
 
     @Test
     public void saveDataToFile_nullFile_throwsNullPointerException() throws Exception {
@@ -144,9 +141,9 @@ public class XmlUtilTest {
     }
 
     /**
-     * Test class annotated with {@code XmlRootElement} to allow unmarshalling of .xml data to {@code XmlAdaptedProduct}
+     * Test class annotated with {@code XmlRootElement} to allow unmarshalling of .xml data to {@code XmlAdaptedPerson}
      * objects.
      */
     @XmlRootElement(name = "product")
-    private static class XmlAdaptedProductWithRootElement extends XmlAdaptedProduct {}
+    private static class XmlAdaptedPersonWithRootElement extends XmlAdaptedProduct {}
 }

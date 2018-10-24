@@ -17,26 +17,43 @@ public class User {
     private static final String AB_FILEPATH_FOLDER = "data";
     private static final String AB_FILEPATH_PREFIX = "addressbook-";
     private static final String AB_FILEPATH_POSTFIX = ".xml";
+    private static final String DB_FILEPATH_FOLDER = "data/";
+    private static final String DB_FILEPATH_PREFIX = "distributorbook-";
+    private static final String DB_FILEPATH_POSTFIX = ".xml";
 
     private Username username;
     private Password password;
     private Path addressBookFilePath;
+    private Path distributorBookFilePath;
 
+<<<<<<< HEAD
+    public User() {
+        this.username = new Username("default");
+        this.password = new Password("password");
+        this.addressBookFilePath = Paths.get(AB_FILEPATH_FOLDER, "addressbook-default.xml");
+        this.distributorBookFilePath=Paths.get(AB_FILEPATH_FOLDER, "distributorbook-default.xml");
+    }
+
+=======
+>>>>>>> upstream/master
     /**
      * Creates a user instance
      */
     public User(Username username, Password password) {
-        this(username, password, Paths.get(AB_FILEPATH_FOLDER, AB_FILEPATH_PREFIX + username + AB_FILEPATH_POSTFIX));
+        this(username, password,
+                Paths.get(AB_FILEPATH_FOLDER, AB_FILEPATH_PREFIX + username + AB_FILEPATH_POSTFIX),
+                Paths.get(DB_FILEPATH_FOLDER, DB_FILEPATH_PREFIX + username + DB_FILEPATH_POSTFIX));
     }
 
     /**
      * Every field must be present and not null.
      */
-    public User(Username username, Password password, Path addressBookFilePath) {
+    public User(Username username, Password password, Path addressBookFilePath, Path distributorBookFilePath) {
         requireAllNonNull(username, password, addressBookFilePath);
         this.username = username;
         this.password = password;
         this.addressBookFilePath = addressBookFilePath;
+        this.distributorBookFilePath = distributorBookFilePath;
     }
 
     /**
@@ -45,6 +62,11 @@ public class User {
     public static boolean isValidAddressBookFilePath(Path test, String username) {
         return test.equals(Paths.get(AB_FILEPATH_FOLDER, AB_FILEPATH_PREFIX + username + AB_FILEPATH_POSTFIX))
                 && !test.equals(Paths.get(""));
+    }
+
+    public static boolean isValidDistributorBookFilePath(Path test, String username) {
+        return test.equals(Paths.get(DB_FILEPATH_FOLDER + DB_FILEPATH_PREFIX + username + DB_FILEPATH_POSTFIX))
+                && !test.equals("");
     }
 
     public Username getUsername() {
@@ -59,6 +81,10 @@ public class User {
         return addressBookFilePath;
     }
 
+    public Path getDistributorBookFilePath() {
+        return distributorBookFilePath;
+    }
+
     /**
      * Returns true if both user of the same name have at least one other identity field that is the same.
      */
@@ -70,7 +96,8 @@ public class User {
         return otherUser != null
                 && otherUser.getUsername().equals(getUsername())
                 && (otherUser.getPassword().equals(getPassword())
-                || otherUser.getAddressBookFilePath().equals(getAddressBookFilePath()));
+                || otherUser.getAddressBookFilePath().equals(getAddressBookFilePath())
+                || otherUser.getDistributorBookFilePath().equals(getDistributorBookFilePath()));
     }
 
     /**
@@ -90,13 +117,14 @@ public class User {
         User otherPerson = (User) other;
         return otherPerson.getUsername().equals(this.getUsername())
                 && otherPerson.getPassword().equals(this.getPassword())
-                && otherPerson.getAddressBookFilePath().equals(this.getAddressBookFilePath());
+                && otherPerson.getAddressBookFilePath().equals(this.getAddressBookFilePath())
+                && otherPerson.getDistributorBookFilePath().equals(this.getDistributorBookFilePath());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(username, password, addressBookFilePath);
+        return Objects.hash(username, password, addressBookFilePath, distributorBookFilePath);
     }
 
     @Override
@@ -105,9 +133,16 @@ public class User {
         builder.append(" Username: ")
                 .append(getUsername())
                 .append(" Password: ")
+<<<<<<< HEAD
+                .append(getAddressBookFilePath())
+                .append(" Address Book File Path: ")
+                .append(getDistributorBookFilePath())
+                .append(" Distributor Book File Path: ");
+=======
                 .append(getPassword())
                 .append(" File Path: ")
                 .append(getAddressBookFilePath());
+>>>>>>> upstream/master
         return builder.toString();
     }
 }

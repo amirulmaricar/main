@@ -47,11 +47,16 @@ public class MainWindow extends UiPart<Stage> {
     private StackPane commandBoxPlaceholder;
 
     @FXML
-    private MenuItem helpMenuItem;
+    private StackPane distributorListPanelPlaceholder;
 
     @FXML
-    private StackPane personListPanelPlaceholder;
+    private MenuItem helpMenuItem;
 
+<<<<<<< HEAD
+    @FXML
+    private StackPane personListPanelPlaceholder;
+=======
+>>>>>>> upstream/master
 
     @FXML
     private StackPane resultDisplayPlaceholder;
@@ -126,6 +131,9 @@ public class MainWindow extends UiPart<Stage> {
         productListPanel = new ProductListPanel(logic.getFilteredPersonList());
         personListPanelPlaceholder.getChildren().add(productListPanel.getRoot());
 
+        distributorListPanel = new DistributorListPanel(logic.getFilteredDistributorList());
+        distributorListPanelPlaceholder.getChildren().add(distributorListPanel.getRoot());
+
         ResultDisplay resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
@@ -191,7 +199,6 @@ public class MainWindow extends UiPart<Stage> {
     public ProductListPanel getProductListPanel() {
         return productListPanel;
     }
-
 
     void releaseResources() {
         browserPanel.freeResources();
