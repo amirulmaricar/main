@@ -12,8 +12,6 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-import seedu.address.storage.DataEncryptionUtil;
-
 /**
  * Helps with reading from and writing to XML files.
  */

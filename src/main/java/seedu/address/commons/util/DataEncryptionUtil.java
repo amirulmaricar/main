@@ -1,4 +1,4 @@
-package seedu.address.storage;
+package seedu.address.commons.util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -21,7 +21,6 @@ import javax.crypto.spec.IvParameterSpec;
 
 import seedu.address.MainApp;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.commons.util.StringUtil;
 
 /**
  * A class containing utility methods to encrypt and decrypt files for Storage
