@@ -131,7 +131,6 @@ public class DataEncryptionUtil {
             keyGen = KeyGenerator.getInstance("AES");
         } catch (NoSuchAlgorithmException e) {
             logger.severe("Failed to generate AES key");
-            System.exit(1);
         }
 
         keyGen.init(256);
@@ -150,7 +149,6 @@ public class DataEncryptionUtil {
             oos.close();
         } catch (IOException e) {
             logger.severe("Failed to save key to file");
-            System.exit(1);
         }
         logger.fine("Key saved to file");
     }
