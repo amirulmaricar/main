@@ -47,7 +47,6 @@ public class DataEncryptionUtil {
             processFile(cipher, file);
         } catch (GeneralSecurityException e) {
             logger.severe("Failed to encrypt message " + StringUtil.getDetails(e));
-            System.exit(1);
         }
     }
 
@@ -67,7 +66,6 @@ public class DataEncryptionUtil {
             processFile(cipher, file);
         } catch (GeneralSecurityException e) {
             logger.severe("Failed to decrypt message " + StringUtil.getDetails(e));
-            System.exit(1);
         }
     }
 
