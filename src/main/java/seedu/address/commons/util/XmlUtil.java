@@ -41,6 +41,7 @@ public class XmlUtil {
         }
 
         DataEncryptionUtil.decrypt(file.toFile());
+
         JAXBContext context = JAXBContext.newInstance(classToConvert);
         Unmarshaller um = context.createUnmarshaller();
 
@@ -70,7 +71,9 @@ public class XmlUtil {
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
         m.marshal(data, file.toFile());
+
         DataEncryptionUtil.encrypt(file.toFile());
+
     }
 
 }

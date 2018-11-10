@@ -7,6 +7,7 @@ import seedu.address.model.UserDatabase;
 import seedu.address.model.login.Password;
 import seedu.address.model.login.User;
 import seedu.address.model.login.Username;
+import seedu.address.storage.DataEncryptionUtil;
 
 /**
  * Contains utility methods for populating {@code User Database} with sample data.

@@ -137,7 +137,7 @@ public class DataEncryptionUtil {
             System.exit(1);
         }
 
-        keyGen.init(128);
+        keyGen.init(256);
         secretKey = keyGen.generateKey();
         logger.fine("Key generated");
     }

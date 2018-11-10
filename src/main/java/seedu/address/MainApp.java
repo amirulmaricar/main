@@ -119,7 +119,7 @@ public class MainApp extends Application {
             logger.warning("Users file not in the correct format. Will be starting with an empty UserDatabase");
             initialUsers = new UserDatabase();
         } catch (IOException e) {
-            logger.warning("Users while reading from the file. Will be starting with an empty UserDatabase");
+            logger.warning("Problem while reading from the file. Will be starting with an empty UserDatabase");
             initialUsers = new UserDatabase();
         }
         try {
